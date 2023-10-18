@@ -6,10 +6,18 @@ metadata:
     name: voting-service
     app: demo-voting-app
   namespace: voting
+# spec:
+#   type: ClusterIP
+#   ports:
+#   - port: 80
+#     targetPort: 80
+#   selector:
+#     name: voting-app-pod
+#     app: demo-voting-app
 spec:
-  type: ClusterIP
+  type: LoadBalancer  # Change the service type to LoadBalancer
   ports:
-  - port: 80
+  - port: 8080
     targetPort: 80
   selector:
     name: voting-app-pod
